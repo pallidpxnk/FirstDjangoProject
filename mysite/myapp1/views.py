@@ -1,5 +1,9 @@
 from django.shortcuts import render
 
+from myapp1.models import Flower
+
 
 def index(request):
-    return render(request, 'myapp1/index.html')
+    flowers = Flower.objects.all()
+
+    return render(request, 'myapp1/index.html', {'flowers': flowers})
