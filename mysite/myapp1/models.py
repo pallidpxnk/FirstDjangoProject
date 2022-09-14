@@ -3,10 +3,18 @@ from django.utils.text import slugify
 from django.urls import reverse
 
 
+class Category(models.Model):
+    title = models.CharField(max_length=255, default='')
+
+    def __str__(self):
+        return self.title
+
+
 class Flower(models.Model):
     title = models.CharField(max_length=255, default='')
     description = models.TextField(default='')
     slug = models.SlugField(blank=True, default='')
+    category = models.ForeignKey(Category, null=True, on_delete=models.PROTECT)
 
     def __str__(self):
         return self.title
