@@ -11,6 +11,10 @@
             <a href="/admin/myapp/flower/{{ flower.id }}/change/" class="card-link">Edit</a>
             <a href="/admin/myapp/flower/{{ flower.id }}/delete/" class="card-link">Delete</a>
         </div>
+        <hr>
+        {% for tag in flower.tags.all %}
+            <a href="#" class="card-link">{{ tag }}</a>
+        {% endfor %}
     </div>
 {% endfor %}
 </div>
