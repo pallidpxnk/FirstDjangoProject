@@ -13,7 +13,7 @@
         </div>
         <hr>
         {% for tag in flower.tags.all %}
-            <a href="#" class="card-link">{{ tag }}</a>
+            <a href="{% url 'tags' tag.slug %}" class="card-link">{{ tag }}</a>
         {% endfor %}
     </div>
 {% endfor %}

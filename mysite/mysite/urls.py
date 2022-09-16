@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('flower/<slug:slug>/', myapp_views.detail, name='detail'),
     path('', myapp_views.index, name='index'),
+    path('tags/<slug:slug>/', myapp_views.tags, name='tags'),
 ]

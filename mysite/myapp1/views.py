@@ -12,3 +12,8 @@ def index(request):
 def detail(request, slug=None):
     flower = get_object_or_404(Flower, slug=slug)
     return render(request, 'myapp1/detail.html', {'flower': flower})
+
+
+def tags(request, slug=None):
+    flowers = Flower.objects.filter(tags__slug=slug)
+    return render(request, 'myapp/index.html', {'flowers': flowers})
