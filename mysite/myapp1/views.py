@@ -4,8 +4,12 @@ from myapp1.models import Flower
 
 
 def index(request):
-    flowers = Flower.objects.all()
-
+    q = request.GET.get('q', None)
+    items = ''
+    if q is None or q is '':
+        flowers = Flower.objects.all()
+    elif q is not None:
+        flowers = Flower.objects.filter(title__containers=q)
     return render(request, 'myapp1/index.html', {'flowers': flowers})
 
 
